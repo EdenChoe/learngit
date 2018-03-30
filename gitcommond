@@ -1,0 +1,37 @@
+# 工作区 就是本机的git init的目录；Repository版本库包含stage和master两个部分；
+# 其中stage中储存的是git add file后file文件和master中file文件之间的区别。
+# 通过git commit可以将stage中的区别应用到master中去，形成一个新的版本。
+
+git init
+# 在本目录下创建版本库 会生成一个.git目录
+
+git add filename
+# 将文件的改变添加到stage中，若此后再次修改该文件内容，stage中的内容不会主动跟随工作区中的文件变化
+
+git commit -m "Description"
+# 提交新的版本
+
+git status
+# 主要查看工作区文件改变情况，以及修改是否添加到了stage中。
+
+git diff filename
+# 查看master中的file和工作区中的file的区别
+
+git reset --hard HEAD^
+# 通过git reset可以返回之前的版本
+# 其中HEAD表示当前版本 HEAD^为上一版本，HEAD^^为上上个版本
+
+git log
+# 查看版本commit记录 以及commit id
+
+git reset --hard commitid
+
+git checkout -- filename
+git reset HEAD filename
+
+# 场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+# 场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+# 场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
+
+git rm filename
+#命令git rm用于删除一个文件。 通过 rm file
