@@ -82,3 +82,31 @@ HEAD相当于一个指针，指向你现在工作的分支。
 当不存在冲突时，Git使用Fast-forward的方式自动合并。
 当存在冲突时，Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
 用git log --graph命令可以看到分支合并图。
+
+合并方式还有--on-off等其他方式，但是我并没有看懂。
+
+---git stash---
+
+Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作.
+git stash
+git stash list
+git stash apply name
+git stash drop name
+git stash pop
+
+比如master分支遇见一个bug，但是dev分支的工作没有做完。
+就可以先把工作现场git stash一下，然后去修复bug；
+修复后，再git stash pop，回到工作现场。
+
+---多人合作开发---
+多人协作的工作模式通常是这样：
+
+1.首先，可以试图用git push origin branch-name推送自己的修改；
+2.如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+3.如果合并有冲突，则解决冲突，并在本地提交；
+4.没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+
+如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+
+
+--
