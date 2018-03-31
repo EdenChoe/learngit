@@ -109,4 +109,12 @@ git stash pop
 如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
 
 
---
+---标签TAG---
+
+使用commit id表示不方便，于是引入了标签。
+1.命令git tag <name>用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+2.git tag -a <tagname> -m "blablabla..."可以指定标签信息；
+3.git tag -s <tagname> -m "blablabla..."可以用PGP签名标签；
+4.命令git tag可以查看所有标签。
+
+
