@@ -74,3 +74,11 @@ git clone git@github.com:michaelliao/gitskills.git
 创建+切换分支：git checkout -b <name>
 合并某分支到当前分支：git merge <name>
 删除分支：git branch -d <name>
+
+基本逻辑：
+master分支相当于你的主干，其他分支上的工作最后大都会merge到master分支上。
+HEAD相当于一个指针，指向你现在工作的分支。
+
+当不存在冲突时，Git使用Fast-forward的方式自动合并。
+当存在冲突时，Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
+用git log --graph命令可以看到分支合并图。
