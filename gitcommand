@@ -51,8 +51,7 @@ ssh-keygen -t rsa -C "youremail@example.com"
 git remote add origin git@server-name:path/repo-name.git；
 
 关联后，使用命令
-git push -u origin maste
-r第一次推送master分支的所有内容；
+git push -u origin master第一次推送master分支的所有内容；
 
 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
 
@@ -81,6 +80,8 @@ HEAD相当于一个指针，指向你现在工作的分支。
 
 当不存在冲突时，Git使用Fast-forward的方式自动合并。
 当存在冲突时，Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
+(具体而言需要通过git pull 到本地，再通过给git status 查看区别)
+
 用git log --graph命令可以看到分支合并图。
 
 合并方式还有--on-off等其他方式，但是我并没有看懂。
