@@ -50,6 +50,14 @@ ssh-keygen -t rsa -C "youremail@example.com"
 要关联一个远程库，使用命令
 git remote add origin git@server-name:path/repo-name.git；
 
+例子：
+git remote add origin git@github.com:FBing/java-code-generator(ssh key直接登录)
+git remote add origin www.github.com/FBing/java-code-generator(这样需要密码登录)
+
+
+删除关联的远程库
+git remote rm origin
+
 关联后，使用命令
 git push -u origin master第一次推送master分支的所有内容；
 
@@ -107,7 +115,11 @@ git stash pop
 3.如果合并有冲突，则解决冲突，并在本地提交；
 4.没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
 
-如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+常见问题：
+如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to origin/branch-name branch-name。
+
+如果git pull提示“fatal: refusing to merge unrelated histories”
+git pull origin master ----allow-unrelated-histories
 
 
 ---标签TAG---
@@ -117,5 +129,3 @@ git stash pop
 2.git tag -a <tagname> -m "blablabla..."可以指定标签信息；
 3.git tag -s <tagname> -m "blablabla..."可以用PGP签名标签；
 4.命令git tag可以查看所有标签。
-
-
